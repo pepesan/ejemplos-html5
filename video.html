@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="utf-8"/>
-        <title>Índice de Ejercicios</title>
+        <title>Reproducción de Video</title>
     </head>
     <body>
       <!-- Aquí va la parte visible -->
@@ -16,11 +16,12 @@
      </nav>
      <section>
          <!--video src="videos/mov_bbb.mp4" controls></video-->
+         <!-- https://www.w3schools.com/tags/tag_video.asp -->
          <video width="400" controls
-          autoplay>
+          poster="videos/watchtrailer.gif">
           <source src="videos/mov_bbb.mp4" type="video/mp4">
           <source src="videos/mov_bbb.ogg" type="video/ogg">
-          Your browser does not support HTML5 video.
+          Este texto sólo se ve si el navegador no soporta el video.
         </video>
      </section>
     </body>
