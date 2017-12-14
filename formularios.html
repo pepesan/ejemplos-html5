@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Ejemplos de formularios</title>
+        <style>
+            form{
+                border: 1px solid red;
+            }
+        </style>
+    </head>
+    <body>
+    
+     <nav>
+         <ul>
+             <li>
+                 <a href="index.html">Inicio</a>
+             </li>
+         </ul>
+     </nav>
+        <section>
+            <div>
+                <form name="miformulario"
+                   id="miform"
+                   action="formularios.php"
+                   method="post"
+                   enctype="multipart/form-data"
+                   >
+                   <div>
+                       <label for="nombre">Nombre de Usuario:</label>
+                       <input type="text" name="nombre" id="nombre" value=""/>
+                   </div>
+                   <div>
+                       <label for="password">Contraseña:</label>
+                       <input type="password" name="pass" id="password" value=""/>
+                   </div>
+                   <div>
+                       <label for="password2">Repita Contraseña:</label>
+                       <input type="password" name="pass2" id="password2" value=""/>
+                   </div>
+                   <div>
+                       <label for="avatar">Avatar:</label>
+                       <input type="file" name="fichero[]" id="avatar" multiple="multiple" value=""/>
+                   </div>
+                   <div>
+                       <input type="button" name="boton" id="boton" value="Texto Boton"/>
+                   </div>
+                   <div>
+                       <input type="hidden" name="valor_oculto" id="oculto" value="Valor Oculto"/>
+                   </div>
+                    <input type="submit" name="submit" value="Enviar" id="submit"/>
+                </form>
+            </div>
+            <div>
+                <form action="formularios.php" method="post" name="form2" id="form2">
+                  <div>
+                       <label>Género:</label>
+                       <label for="genero_m">Masculino</label>
+                       <input type="radio" id="genero_m" name="genero" value="m"/>
+                       <label for="genero_f">Femenino</label>
+                       <input type="radio" id="genero_f" name="genero" value="f"/>
+                       <label for="genero_i">Indeterminado</label>
+                       <input type="radio" id="genero_i" name="genero" value="i" checked="checked"/>
+                   </div>
+                   <div>
+                       <label for="condiciones">Acepta las condiciones del servicio?</label>
+                       <input type="checkbox" id="condiciones" name="condiciones"
+                       checked="checked"
+                         />
+                   </div>
+                   <div>
+                      <label for="clase">Clase Social Actual:</label>
+                       <select name="clase_social" id="clase">
+                           <option value="none">Ninguna</option>
+                           <optgroup label="Clase Baja">
+                               <option value="bb">B.Baja</option>
+                               <option value="bm">B.Media</option>
+                               <option value="ba" selected="selected">B.Alta</option>
+                           </optgroup>
+                           <optgroup label="Clase Media">
+                               <option value="mb"
+                               >M.Baja</option>
+                               <option value="mm">M.Media</option>
+                               <option value="ma">M.Alta</option>
+                           </optgroup>
+                           <optgroup label="Clase Alta">
+                               <option value="ab">A.Baja</option>
+                               <option value="am">A.Media</option>
+                               <option value="aa">A.Alta</option>
+                           </optgroup>
+                       </select>
+                   </div>
+                   <div>
+                      <label for="clase_a">Clase Aspiracional:</label>
+                       <select name="clase_social_a[]" id="clase_A" multiple="multiple">
+                           <option value="none">Ninguna</option>
+                           <optgroup label="Clase Baja">
+                               <option value="bb">B.Baja</option>
+                               <option value="bm">B.Media</option>
+                               <option value="ba" selected="selected">B.Alta</option>
+                           </optgroup>
+                           <optgroup label="Clase Media">
+                               <option value="mb" selected="selected">M.Baja</option>
+                               <option value="mm">M.Media</option>
+                               <option value="ma">M.Alta</option>
+                           </optgroup>
+                           <optgroup label="Clase Alta">
+                               <option value="ab">A.Baja</option>
+                               <option value="am">A.Media</option>
+                               <option value="aa">A.Alta</option>
+                           </optgroup>
+                       </select>
+                   </div>
+                   <div>
+                       <label for="observaciones">Observaciones:</label>
+                       <textarea id="observaciones" name="observaciones" maxlength="50"></textarea>
+                   </div>
+                    <input type="submit" name="submit" value="Enviar" id="submit2"/>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
