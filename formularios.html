@@ -113,9 +113,121 @@
                    </div>
                    <div>
                        <label for="observaciones">Observaciones:</label>
-                       <textarea id="observaciones" name="observaciones" maxlength="50"></textarea>
+                       <textarea id="observaciones" name="observaciones" maxlength="50" placeholder="aqui va el comentario" spellcheck="true"></textarea>
                    </div>
                     <input type="submit" name="submit" value="Enviar" id="submit2"/>
+                </form>
+            </div>
+            <div>
+                <form action="formularios.php" method="post">
+                    <div>
+                        <label for="url">Blog:</label>
+                        <input type="url" name="blog" id="url" value="http://cursosdedesarrollo.com/" required/>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" name="correo" id="email" value="pepesan@gmail.com" required 
+                        minlength="7"
+                        maxlength="50"
+                        />
+                    </div>
+                    <div>
+                        <label for="tlf">Teléfono:</label>
+                        <input type="tel" name="telefono" id="tlf" value="+34 913456789" required
+                        minlength="9"
+                        />
+                    </div>
+                    <div>
+                        <label for="color">Fondo de Pantalla:</label>
+                        <input type="color" name="color" id="color" value="#ffffff" required
+                        />
+                    </div>
+                    <div>
+                        <label for="fecha">Fecha Nacimiento:</label>
+                        <input type="date" name="fecha" id="fecha" value="2011-09-29" required
+                        />
+                    </div>
+                    <div>
+                        <label for="fechahora">Fecha y Hora:</label>
+                        <input type="datetime-local" name="fechahora" id="fechahora" value="2017-12-14T13:45" required
+                        />
+                    </div>
+                    <div>
+                        <label for="tiempo">Tiempos:</label>
+                        <input type="time" name="tiempo" id="tiempo" value="06:04" required
+                        />
+                    </div>
+                    <div>
+                        <label for="mes">Mes:</label>
+                        <input type="month" name="mes" id="mes" value="2018-02" required
+                        />
+                    </div>
+                    <div>
+                        <label for="week">Semana:</label>
+                        <input type="week" name="week" id="week" value="2019-W33" required
+                        />
+                    </div>
+                    <div>
+                        <label for="numero">Número de coches:</label>
+                        <input type="number" name="numero" id="numero" value="5.0" required
+                        min=0 max=50
+                        
+                        />
+                    </div>
+                    <div>
+                        <label for="edad">Edad:</label>
+                        <input type="range" name="edad" id="edad" value="18" required
+                        min=16 max=67
+                        step=1
+                        pattern="\d{3}"
+                        />
+                    </div>
+                    <div>
+                        <label for="anos">Experiencia en Años:</label>
+                        <input type="text" name="anos" id="anos" value="" required
+                        pattern="\d{1,2}"
+                        />
+                    </div>
+                    <div>
+                       <datalist id="listado">
+                           <option value="pepesan@gmail.com" label="Pepesan"></option>
+                           <option value="info@cursosdedesarollo.com" label="Admin"></option>
+                       </datalist>
+                        <label for="contacto">Contacto:</label>
+                        <input type="email" name="contacto" id="contacto" value="pepesan@gmail.com" required list="listado"
+                        />
+                    </div>
+                    <input type="submit" name="submit" value="Enviar" id="submit3"/>
+                </form>
+            </div>
+            <div>
+                   <form action="formularios.php" method="post">
+                    <div>
+                        <input type="search" name="buscar" id="buscar" value="" required
+                        placeholder="Aquí va búsqueda"
+                        autocomplete="off"
+                        />
+                    </div>
+                    <input type="submit" name="submit" value="Enviar" id="submit4"/>
+                </form>
+            </div>
+            <div>
+                   <form action="formularios.php" method="post">
+                    <div>
+                        <label for="username"></label>
+                        <input type="text" name="username" id="username" value="usuario" required
+                        placeholder="Nombre de usuario"
+                        />
+                    </div>
+                    <div>
+                        <label for="contra"></label>
+                        <input type="password" name="contra" id="contra" value="" required
+                        placeholder="Contraseña chunga"
+                        autofocus
+                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                        />
+                    </div>
+                    <input type="submit" name="submit" value="Enviar" id="submit5"/>
                 </form>
             </div>
         </section>
