@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Índice de Ejercicios</title>
+        <style>
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+          color: darkgreen;
+        }
+        ::-moz-placeholder { /* Firefox 19+ */
+          color: darkgreen;
+        }
+        ::placeholder{
+            color: darkgreen;
+        }
+        </style>
+    </head>
+    <body>
+      <!-- Aquí va la parte visible -->
+      <nav>
+         <ul>
+             <li>
+                 <a href="../index.html">Inicio</a>
+             </li>
+             <li>
+                 <a href="index.html">Ejercicios</a>
+             </li>
+         </ul>
+     </nav>
+     <section id="main">
+         <form id="formu" name="formu" action="" method="post">
+            <h2>Create an Account</h2>
+            <hr/>
+           <div>
+              <img src="icons/user-silhouette.png"/>
+              <input type="text" name="name" id="name" value="" placeholder="Name"/>
+           </div>
+           <div>
+              <img src="icons/phone-receiver.png"/>
+               <input type="tel" name="tlf" id="tlf" value="" placeholder="Telefono"
+               pattern="[\+]\d{1,2}\d{9}" required
+               />
+           </div>
+           <div>
+               <img src="icons/close-envelope.png"/>
+               <input type="email" name="correo" id="correo" value="" placeholder="Email"/>
+           </div>
+           <div>
+              <img src="icons/lock.png"/>
+              <input type="password" name="pass" id="pass" value="" placeholder="Contraseña"/>
+           </div>
+           <div>
+               <input type="checkbox" name="condiciones" id="condiciones"/><label  for="condiciones">I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></label>
+           </div>
+           <div>
+               <input type="submit" name="submit" value="Create Account"/>
+           </div>
+         </form>
+     </section>
+    </body>
+</html>
