@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8"/>
         <title>Mi primera página</title>
+        <script src="js/drag-drop.js"></script>
+
     </head>
     <body>
       <!-- Aquí va la parte visible -->
@@ -48,20 +50,35 @@
                  <a href="drag-drop.html">Drag And Drop</a>
              </li>
              <li>
-                 <a href="geo.html">Geolocalización</a>
-             </li>
-             <li>
-                 <a href="storage.html">Almacenamiento sencillo (Local y Session Storage)</a>
-             </li>
-             <li>
-                 <a href="storage.html">Almacenamiento complejo (IndexedDB)</a>
-             </li>
-             <li>
                  <a href="ejercicios/index.html">Ejercicios</a>
              </li>
          </ul>
      </nav>
-       <h1>Mi título</h1>
-        <p>Hola Mundo!</p>
+       <h1>Drag And Drop</h1>
+        <style>
+            #container{
+                overflow: hidden;
+            }
+            div.caja{
+                height: 400px;
+                width: 400px;
+                background-color: red;
+                float: left;
+                margin-left: 20px;
+                margin-bottom: 20px;
+            }
+        
+        </style>
+        <div id="container">
+            <div class="caja" id="c1" draggable="true">
+                <h3>Pilla esta caja</h3>
+            </div>
+            <div class="caja" id="c2" draggable="true">
+                <h3>suelta la caja aquí</h3>
+            </div>
+        </div>
     </body>
 </html>
+
+        
+
