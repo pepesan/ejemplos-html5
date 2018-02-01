@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Mi primera página</title>
+        <script src="js/drag-drop-v2.js"></script>
+
+    </head>
+    <body>
+      <!-- Aquí va la parte visible -->
+      <nav>
+         <ul>
+             <li>
+                 <a href="#">Inicio</a>
+             </li>
+
+             <li>
+                 <a href="layout.html">Layout</a>
+             </li>
+             <li>
+                 <a href="layout-antiguo.html">Layout Antiguo</a>
+             </li>
+             <li>
+                 <a href="navegacion.html">Navegacion</a>
+             </li>
+             <li><a href="cabecera.html">Cabecera</a></li>
+             <li><a href="footer.html">Footer</a></li>
+             <li>
+                 <a href="secciones.html">Secciones</a>
+             </li>
+             <li>
+                 <a href="articulo.html">Artículos</a>
+             </li>
+             <li>
+                 <a href="textos.html">Textos</a>
+             </li>
+             <li>
+                 <a href="blog.html">Blog</a>
+             </li>
+             <li>
+                 <a href="video.html">Video</a>
+             </li>
+             <li>
+                 <a href="audio.html">Audio</a>
+             </li>
+             <li>
+                 <a href="formularios.html">Formularios</a>
+             </li>
+             <li>
+                 <a href="drag-drop.html">Drag And Drop</a>
+             </li>
+             <li>
+                 <a href="ejercicios/index.html">Ejercicios</a>
+             </li>
+         </ul>
+     </nav>
+       <h1>Drag And Drop</h1>
+        <style>
+            #container{
+                overflow: hidden;
+            }
+            div.caja{
+                height: 400px;
+                width: 400px;
+                background-color: red;
+                float: left;
+                margin-left: 20px;
+                margin-bottom: 20px;
+                color: white;
+                font-size: 40px;
+            }
+            .oculta{
+                display: none;
+            }
+        
+        </style>
+        <div id="container">
+            <div class="caja" id="c1">
+                <h3>Pilla uno de estos elementos</h3>
+                <ul id="origen">
+                    <li id="l1" draggable="true">1</li>
+                    <li id="l2" draggable="true">2</li>
+                    <li id="l3" draggable="true">3</li>
+                    <li id="l4" draggable="true">4</li>
+                </ul>
+            </div>
+            <div class="caja" id="c2">
+                <h3>suelta la caja aquí</h3>
+                <ul id="destino">
+                    
+                </ul>
+            </div>
+        </div>
+        <button id="boton">Enviar</button>
+    </body>
+</html>
+
+        
+
