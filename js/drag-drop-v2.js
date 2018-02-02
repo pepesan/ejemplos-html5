@@ -38,7 +38,7 @@ function soltar(event){
     console.log(miul);
     console.log(miul.innerHTML);
     miul.innerHTML+=todomili;
-    var mislis=document.querySelectorAll("#destino li");
+    var mislis=document.querySelectorAll("#"+event.target.id+ " li");
     var ultimoLi=mislis[mislis.length-1];
     ultimoLi.addEventListener("dragstart",comenzar);
 }
