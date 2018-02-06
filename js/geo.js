@@ -2,23 +2,24 @@ var id;
 
 function gestionaGeo(position) {
     console.log(position);
-    console.log(position.coords.latitude);
-    console.log(position.coords.longitude);
-    console.log(position.coords.accuracy);
-    console.log(position.coords.altitude);
-    console.log(position.coords.altitudeAccuracy);
-    console.log(position.coords.heading);
-    console.log(position.coords.speed);
-    console.log(position.timestamp);
+    console.log("Latitud:"+position.coords.latitude);
+    console.log("Longitud:"+position.coords.longitude);
+    console.log("Puntería:"+position.coords.accuracy);
+    console.log("Altitud:"+position.coords.altitude);
+    console.log("Puntería de Altitud:"+position.coords.altitudeAccuracy);
+    console.log("Dirección de Avance:"+position.coords.heading);
+    console.log("Velocidad:"+position.coords.speed);
+    console.log("Fecha y hora:"+position.timestamp);
 }
 
 function pillaGeo() {
-    navigator.geolocation.getCurrentPosition(gestionaGeo);
+    navigator.geolocation
+        .getCurrentPosition(gestionaGeo);
 }
 
 function empiezaGeo() {
     if (navigator.geolocation) {
-        id = navigator.geolocation.watchPosition(gestionaGeo);
+        id = navigator.geolocation.watchPosition(gestionaGeo,null, {timeout:1000});
     } else {
         console.log("Geolocation is not supported by this browser.");
     }

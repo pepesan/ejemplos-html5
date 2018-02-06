@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<script>
+function goBack() {
+    window.history.back()
+}
+function goForward() {
+    window.history.forward()
+}
+function goFalsa() {
+    window.history.pushState(null,null,"pagina.html");
+    //comprueba si una página falsa ha sido visitada
+    console.log(window.history.state);
+    console.log(window.history.popstate);
+}
+function goCambia() {
+    window.history.replaceState(null,null,"pagina2.html");
+    //comprueba si una página falsa ha sido visitada
+    console.log(window.history.state);
+    console.log(window.history.popstate);
+}
+</script>
+</head>
+<body>
+
+<input type="button" value="Back" onclick="goBack()">
+<input type="button" value="Adelante" onclick="goForward()">
+<input type="button" value="Falsea" onclick="goFalsa()">
+<input type="button" value="Cambia Falsa" onclick="goCambia()">
+<a href="history.html">Atrás</a>
+</body>
+</html>

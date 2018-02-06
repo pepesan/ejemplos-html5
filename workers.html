@@ -54,7 +54,7 @@
                  <a href="storage.html">Almacenamiento sencillo (Local y Session Storage)</a>
              </li>
              <li>
-                 <a href="indexeddb.html">Almacenamiento complejo (IndexedDB)</a>
+                 <a href="storage.html">Almacenamiento complejo (IndexedDB)</a>
              </li>
              <li>
                  <a href="file.html">Manejo de File API</a>
@@ -63,17 +63,38 @@
                  <a href="workers.html">Manejo de Web Workers</a>
              </li>
              <li>
-                 <a href="websocket.html">Manejo de Web Sockets</a>
-             </li>
-             <li>
-                 <a href="modernizr.html">Modernizr</a>
-             </li>
-             <li>
                  <a href="ejercicios/index.html">Ejercicios</a>
              </li>
          </ul>
      </nav>
-       <h1>Mi título</h1>
-        <p>Hola Mundo!</p>
+    <div>
+        <p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button> 
+<button onclick="stopWorker()">Stop Worker</button>
+
+<p><strong>Note:</strong> Internet Explorer 9 and earlier versions do not support Web Workers.</p>
+
+<script>
+var w;
+
+function startWorker() {
+    if(typeof(Worker) !== "undefined") {
+        if(typeof(w) == "undefined") {
+            w = new Worker("js/worker.js");
+        }
+        w.onmessage = function(event) {
+            document.getElementById("result").innerHTML = event.data;
+        };
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+    }
+}
+
+function stopWorker() { 
+    w.terminate();
+    w = undefined;
+}
+</script>
+    </div>
     </body>
 </html>
