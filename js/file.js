@@ -19,6 +19,7 @@ function uploadFile(file){
         if (xhr.readyState == 4 && xhr.status == 200) {
             // Every thing ok, file uploaded
             console.log(xhr.responseText); // handle response.
+            document.getElementById("images").innerHTML+="<img src='"+xhr.responseText+"'/>"
         }
     };
     fd.append("upload_file", file);
