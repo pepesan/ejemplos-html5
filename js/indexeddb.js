@@ -42,7 +42,7 @@ function conectaDB() {
     window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 
     window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
-    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange
+    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
     var request = window.indexedDB.open("newDatabase", 1);
 
     request.onerror = function (event) {
@@ -69,13 +69,13 @@ function conectaDB() {
 
 function init() {
     console.log("init");
-    conectaDB();
+    
 
     if (!window.indexedDB) {
         console.log("Your browser doesn't support a stable version of IndexedDB.")
     } else {
         console.log("IndexedDB HTML5 está soportada en este navegador.");
-        document.getElementById("escribeDB").addEventListener("click", escribe);
+        conectaDB(); document.getElementById("escribeDB").addEventListener("click", escribe);
         document.getElementById("leeDB").addEventListener("click", lee);
     }
 

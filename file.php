@@ -1,9 +1,11 @@
 <?php
+$baseUrl="http://localhost/html5/datas/";
 if (isset($_FILES['upload_file'])) {
     if(move_uploaded_file($_FILES['upload_file']['tmp_name'], getcwd().DIRECTORY_SEPARATOR."datas/" . $_FILES['upload_file']['name'])){
-        echo $_FILES['upload_file']['name']. " OK";
+        
+        echo $baseUrl.$_FILES['upload_file']['name'];
     } else {
-        echo $_FILES['upload_file']['name']. " KO";
+        echo "Error:".$_FILES['upload_file']['name']. " KO";
     }
     exit;
 } else {
