@@ -29,6 +29,9 @@ function sobrevolar(event){
 function salir(){
     console.log("salido");
 }
+function eliminando(event){
+    event.target.parentElement.removeChild(event.target);
+}
 function soltar(event){
     console.log("Soltado");
     //evitando problemas al soltar
@@ -40,11 +43,11 @@ function soltar(event){
     //cogiendo datos
     var data = event.dataTransfer.getData("iden");
     console.log(data);
-    /*
-    var midiv=document.getElementById("c2");
+    
+    var midiv=document.getElementById("c3");
     console.log(midiv);
-    midiv.innerHTML+="<p>cogidos datos:"+data+"</p>";
-    */
+    midiv.innerHTML+="<h1>Pilla esta caja</h1>";
+    
 }
 function init(){
     console.log("Dom cargado");
@@ -55,6 +58,8 @@ function init(){
     5.- asigna el evento dragstart al primer div, asócialo con una función llamada empezando
     */
     c1.addEventListener("dragstart",empezando);
+    //bonus: elimina el div inicial
+    c1.addEventListener("dragend",eliminando);
     
     /*
     7.- Haz que cuando se haya entrado en el segundo div saque un mensaje por consola (arrastrando)

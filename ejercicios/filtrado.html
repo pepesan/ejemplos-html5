@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Mi primera página</title>
+    <link href="bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+    <script src="jquery-3.2.1.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="filtrado.js"></script>
+</head>
+
+<body>
+    <!-- Aquí va la parte visible -->
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Inicio</a>
+            </li>
+
+        </ul>
+    </nav>
+    <style>
+        input{
+            border: red 1px solid;
+        }
+        @media all and (min-width: 480px){
+            input{
+                border: green 1px solid;
+            }
+        }
+        @media all and (min-width: 736px){
+            input{
+                border: blue 1px solid;
+            }
+        }
+        @media all and (min-width: 980px){
+            input{
+                border: black 1px solid;
+            }
+        }
+        @media all and (min-width: 1280px){
+            input{
+                border: grey 1px solid;
+            }
+        }
+        @media all and (min-width: 1690px){
+            input{
+                border: yellow 1px solid;
+            }
+        }
+
+    </style>
+    <div class="container">
+        <div class="row">
+            <form class="col-xs-12 col-md-6 col-lg-6">
+                <input type="search" id="busqueda" />
+
+                <ul id="sugerencias">
+
+                </ul>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
