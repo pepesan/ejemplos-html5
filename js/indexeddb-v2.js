@@ -1,15 +1,8 @@
 var db;
 
-function cogeTodos(){
-    var transaction = db.transaction(["employee"]);
-    var objectStore = transaction.objectStore("employee");
-    var peticion=objectStore.getAll();
-    console.log(peticion);
-    peticion.onsuccess=function(evento){
-        console.log(peticion.result);
-        var listado=document.getElementById("listado");
-        listado.innerHTML="";
-        for (var item of peticion.result){
+function pintaDatos(datos){
+    listado.innerHTML="";
+        for (var item of datos){
             listado.innerHTML+="<li>"+item.name+"<button class='borrar' id='item-"+item.id+"' data-id='"+item.id+"'>borrar</button</li>";
            var botonid="item-"+item.id; 
             console.log(botonid);
@@ -33,10 +26,41 @@ function cogeTodos(){
                 
             });
         }
+}
+function cogeTodos(){
+    var transaction = db.transaction(["employee"]);
+    var objectStore = transaction.objectStore("employee");
+    var datos=[];
+    var miCursor=objectStore.openCursor();
+    miCursor.onsuccess = function(event) {
+        var cursor = event.target.result;
+        if(cursor) {
+            console.log(cursor.value);  
+            datos.push(cursor.value);
+            cursor.continue();
+        } else {
+            console.log('Entries all displayed.');
+            pintaDatos(datos);
+        }
+    
+    };
+    miCursor.onerror=function(evento){
+        console.log("Algo ha ido chungo");
+    };
+    
+    /*
+    Con la especifiación v2 tenemos el getAll()
+    var peticion=objectStore.getAll();
+    console.log(peticion);
+    peticion.onsuccess=function(evento){
+        console.log(peticion.result);
+        var listado=document.getElementById("listado");
+        pintaDatos(peticion.result);
     }
     peticion.onerror=function(evento){
         console.log("Algo ha ido chungo");
     }
+    */
 }
 
 function lee() {
