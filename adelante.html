@@ -1,33 +1,62 @@
 <html>
+
 <head>
-<meta charset="utf-8"/>
-<script>
-function goBack() {
-    window.history.back()
-}
-function goForward() {
-    window.history.forward()
-}
-function goFalsa() {
-    window.history.pushState(null,null,"pagina.html");
-    //comprueba si una página falsa ha sido visitada
-    console.log(window.history.state);
-    console.log(window.history.popstate);
-}
-function goCambia() {
-    window.history.replaceState(null,null,"pagina2.html");
-    //comprueba si una página falsa ha sido visitada
-    console.log(window.history.state);
-    console.log(window.history.popstate);
-}
-</script>
+    <meta charset="utf-8" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        var miVariable="hola";
+        function goBack() {
+            window.history.back()
+        }
+
+        function goForward() {
+            window.history.forward()
+        }
+
+        function goFalsa() {
+            window.history.pushState(null, null, "pagina.html");
+            //comprueba si una página falsa ha sido visitada
+            //console.log(window.history.state);
+            //console.log(window.history.popstate);
+            document.getElementById("contenido").innerHTML = "<h1>pagina 1</h1>";
+        }
+
+        function goCambia() {
+            window.history.replaceState(null, null, "pagina2.html");
+            //comprueba si una página falsa ha sido visitada
+            //console.log(window.history.state);
+            //console.log(window.history.popstate);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("contenido").innerHTML = this.responseText;
+                    $.getScript("js/pagina2.js")
+                        .done(function(script, textStatus) {
+                            console.log(textStatus);
+                            funcionMolona();
+                        })
+                        .fail(function(jqxhr, settings, exception) {
+                            $("div.log").text("Triggered ajaxError handler.");
+                        });
+
+                }
+            };
+            xhttp.open("GET", "pagina2.html", true);
+            xhttp.send();
+
+        }
+
+    </script>
 </head>
+
 <body>
 
-<input type="button" value="Back" onclick="goBack()">
-<input type="button" value="Adelante" onclick="goForward()">
-<input type="button" value="Falsea" onclick="goFalsa()">
-<input type="button" value="Cambia Falsa" onclick="goCambia()">
-<a href="history.html">Atrás</a>
+    <input type="button" value="Back" onclick="goBack()">
+    <input type="button" value="Adelante" onclick="goForward()">
+    <input type="button" value="Falsea" onclick="goFalsa()">
+    <input type="button" value="Cambia Falsa" onclick="goCambia()">
+    <a href="history.html">Atrás</a>
+    <div id="contenido"></div>
 </body>
+
 </html>
