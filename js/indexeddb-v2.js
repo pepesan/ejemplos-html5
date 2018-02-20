@@ -1,9 +1,12 @@
 var db;
 
 function pintaDatos(datos) {
+    var listado=document.getElementById("listado");
     listado.innerHTML = "";
     for (var item of datos) {
-        listado.innerHTML += "<li>" + item.name + "<button class='borrar' id='item-" + item.id + "' data-id='" + item.id + "'>borrar</button</li>";
+        //listado=+=item 
+        //al listado quiero sumarle lo que tiene item
+        listado.innerHTML += "<li>" + item.name + "<button class='borrar' id='item-" + item.id + "' data-id='" + item.id + "'>borrar</button></li>";
         var botonid = "item-" + item.id;
         //console.log(botonid);
         var miboton = document.getElementById(botonid);
