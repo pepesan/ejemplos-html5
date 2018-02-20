@@ -5,7 +5,7 @@ function pintaDatos(datos) {
     for (var item of datos) {
         listado.innerHTML += "<li>" + item.name + "<button class='borrar' id='item-" + item.id + "' data-id='" + item.id + "'>borrar</button</li>";
         var botonid = "item-" + item.id;
-        console.log(botonid);
+        //console.log(botonid);
         var miboton = document.getElementById(botonid);
         miboton.addEventListener("click", function (event) {
             console.log("borrando");
@@ -98,17 +98,7 @@ function escribeVarios() {
         }
     ];
     for (var item of datos) {
-        var request = db.transaction(["employee"], "readwrite")
-            .objectStore("employee")
-            .add(item);
-
-        request.onsuccess = function (event) {
-            console.log("Dato añadido a la BBDD");
-        };
-
-        request.onerror = function (event) {
-            console.log("No se ha podido añadir a la BBDD");
-        }
+        escribeObjeto(item);
     }
 
 }
@@ -139,9 +129,9 @@ function modifica() {
         .objectStore("employee")
         .put({
             id: "02",
-            name: "Pepe",
+            name: "Pepe2",
             age: 40,
-            email: "pepesan@gmail.com"
+            email: "pepesan2@gmail.com"
         });
 
     request.onsuccess = function (event) {
