@@ -117,13 +117,25 @@ function modifica() {
         console.log("No se ha podido modificar la BBDD");
     }
 }
+function borra(){
+    var request = db.transaction(["employee"], "readwrite")
+        .objectStore("employee")
+        .delete("02");
 
+    request.onsuccess = function (event) {
+        console.log("Dato borrado a la BBDD");
+    };
+
+    request.onerror = function (event) {
+        console.log("No se ha podido borrar el item la BBDD");
+    }
+}
 function conectaDB() {
     console.log("conecta DDBB");
     window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 
     window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
-    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange
+    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
     var request = window.indexedDB.open("newDatabase", 1);
 
     request.onerror = function (event) {
@@ -150,16 +162,18 @@ function conectaDB() {
 
 function init() {
     console.log("init");
-    conectaDB();
+    
 
     if (!window.indexedDB) {
         console.log("Your browser doesn't support a stable version of IndexedDB.")
     } else {
+        conectaDB();
         console.log("IndexedDB HTML5 está soportada en este navegador.");
         document.getElementById("escribeDB").addEventListener("click", escribe);
         document.getElementById("leeDB").addEventListener("click", lee);
         document.getElementById("cogeTodos").addEventListener("click", cogeTodos);
         document.getElementById("modificaDB").addEventListener("click", modifica);
+        document.getElementById("borraDB").addEventListener("click", borra);
     }
 
 
