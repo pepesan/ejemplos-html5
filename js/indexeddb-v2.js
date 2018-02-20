@@ -82,15 +82,40 @@ function lee() {
     };
 }
 
-function escribe() {
+function escribeVarios() {
+    var datos = [
+        {
+            id: "03",
+            name: "juan",
+            age: 25,
+            email: "juan@micasa.com"
+        },
+        {
+            id: "04",
+            name: "Luis",
+            age: 20,
+            email: "luis@micasa.com"
+        }
+    ];
+    for (var item of datos) {
+        var request = db.transaction(["employee"], "readwrite")
+            .objectStore("employee")
+            .add(item);
+
+        request.onsuccess = function (event) {
+            console.log("Dato añadido a la BBDD");
+        };
+
+        request.onerror = function (event) {
+            console.log("No se ha podido añadir a la BBDD");
+        }
+    }
+
+}
+function escribeObjeto(objeto){
     var request = db.transaction(["employee"], "readwrite")
         .objectStore("employee")
-        .add({
-            id: "02",
-            name: "Pepe",
-            age: 39,
-            email: "pepesan@gmail.com"
-        });
+        .add(objeto);
 
     request.onsuccess = function (event) {
         console.log("Dato añadido a la BBDD");
@@ -99,6 +124,14 @@ function escribe() {
     request.onerror = function (event) {
         console.log("No se ha podido añadir a la BBDD");
     }
+}
+function escribe() {
+    escribeObjeto({
+            id: "02",
+            name: "Pepe",
+            age: 39,
+            email: "pepesan@gmail.com"
+        });
 }
 
 function modifica() {
@@ -146,8 +179,8 @@ function leeYEscribe() {
     request.onsuccess = function (event) {
         if (request.result) {
             //console.log(request.result);
-            var objetoDevuelto=request.result;
-            objetoDevuelto.age=40;
+            var objetoDevuelto = request.result;
+            objetoDevuelto.age = 40;
             var request2 = db.transaction(["employee"], "readwrite")
                 .objectStore("employee")
                 .put(objetoDevuelto);
@@ -194,7 +227,25 @@ function conectaDB() {
         */
     }
 }
-
+function envia(event){
+    event.preventDefault();
+    var objeto={};
+    /*
+        {
+            id: "02",
+            name: "Pepe",
+            age: 40,
+            email: "pepesan@gmail.com"
+        }
+    */
+    objeto.id=document.getElementById("iden").value;
+    objeto.name=document.getElementById("name").value;
+    objeto.age=document.getElementById("age").value;
+    objeto.email=document.getElementById("email").value;
+    //console.log(objeto);
+    escribeObjeto(objeto);
+    
+}
 function init() {
     console.log("init");
 
@@ -204,11 +255,13 @@ function init() {
     } else {
         conectaDB();
         console.log("IndexedDB HTML5 está soportada en este navegador.");
+        document.getElementById("escribeVariosDB").addEventListener("click", escribeVarios);
         document.getElementById("escribeDB").addEventListener("click", escribe);
         document.getElementById("leeDB").addEventListener("click", lee);
         document.getElementById("cogeTodos").addEventListener("click", cogeTodos);
         document.getElementById("modificaDB").addEventListener("click", modifica);
         document.getElementById("borraDB").addEventListener("click", borra);
+        document.getElementById("formu").addEventListener("submit",envia);
     }
 
 

@@ -15,11 +15,42 @@
          </ul>
      </nav>
        <h1>IndexedDB</h1>
-       <button id="escribeDB">Escribe BBDD</button>
-       <button id="leeDB">Lee BBDD</button>
-       <button id="modificaDB">Modifica BBDD</button>
-       <button id="borraDB">Borra BBDD</button>
+       <button id="escribeDB">Escribe en BBDD</button>
+       <button id="escribeVariosDB">Escribe Varios en BBDD</button>
+       <button id="leeDB">Lee de BBDD</button>
+       <button id="modificaDB">Modifica en BBDD</button>
+       <button id="borraDB">Borra en BBDD</button>
        <button id="cogeTodos">Coge Todos</button>
+       <form id="formu" name="formu" action="" method="post">
+          <div >
+              <label for="iden">
+               Identificativo:
+               </label>
+               <input name="iden" id="iden" type="text" value=""/>
+           </div>
+           <div >
+              <label for="name">
+               Nombre:
+               </label>
+               <input name="name" id="name" type="text" value=""/>
+           </div>
+           <div >
+              <label for="age">
+               Edad:
+               </label>
+               <input name="age" id="age" type="number" min="0" step="1" value=""/>
+           </div>
+           <div >
+              <label for="email">
+               Email:
+               </label>
+               <input name="email" id="email" type="email" value=""/>
+           </div>
+           <div >
+              
+               <input name="submit" id="submit" type="submit" value="Enviar"/>
+           </div>
+       </form>
        <ul id="listado">
            
        </ul>
