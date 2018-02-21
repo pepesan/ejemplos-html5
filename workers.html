@@ -71,10 +71,20 @@
         <p>Count numbers: <output id="result"></output></p>
 <button onclick="startWorker()">Start Worker</button> 
 <button onclick="stopWorker()">Stop Worker</button>
+<button onclick="sincrona()">Lanza Sincrono</button>
 
 <p><strong>Note:</strong> Internet Explorer 9 and earlier versions do not support Web Workers.</p>
 
 <script>
+    
+function sincrona(event){
+    var datos=[];
+    for (var i=0;i<10000000;i++){
+        datos.push(i);
+        document.getElementById("result").innerHTML+="<i>"+i+"</i>"
+    }
+    document.getElementById("result").innerHTML+="<i>"+datos+"</i>"
+}
 var w;
 
 function startWorker() {
