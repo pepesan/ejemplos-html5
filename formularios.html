@@ -26,18 +26,22 @@
                    method="post"
                    enctype="multipart/form-data"
                    >
-                   <div>
-                       <label for="nombre">Nombre de Usuario:</label>
-                       <input type="text" name="nombre" id="nombre" value=""/>
-                   </div>
-                   <div>
-                       <label for="password">Contraseña:</label>
-                       <input type="password" name="pass" id="password" value=""/>
-                   </div>
-                   <div>
-                       <label for="password2">Repita Contraseña:</label>
-                       <input type="password" name="pass2" id="password2" value=""/>
-                   </div>
+
+                    <fieldset>
+                        <div>
+                            <label for="nombre">Nombre de Usuario:</label>
+                            <input type="text" name="nombre" id="nombre"  value=""/>
+                        </div>
+                       <div>
+                           <label for="password">Contraseña:</label>
+                           <input type="password" name="pass" id="password" value=""/>
+                       </div>
+                       <div>
+                           <label for="password2">Repita Contraseña:</label>
+                           <input type="password" name="pass2" id="password2" value=""/>
+                       </div>
+                    </fieldset>
+                    <fieldset>
                    <div>
                        <label for="avatar">Avatar:</label>
                        <input type="file" name="fichero[]" id="avatar" multiple="multiple" value=""/>
@@ -48,7 +52,42 @@
                    <div>
                        <input type="hidden" name="valor_oculto" id="oculto" value="Valor Oculto"/>
                    </div>
+                        <div>
+                            <label for="novela">Novela</label>
+                            <input type="checkbox" id="novela" name="novela" checked="checked"/>
+                            <label for="utopia">Utopia</label>
+                            <input type="checkbox" id="utopia" name="utopia"  />
+                            <label for="distopia">Distopia</label>
+                            <input type="checkbox" id="distopia" name="distopia" disabled />
+                        </div>
+                        <div>
+                            <label for="alta">Alta</label>
+                            <input type="radio" id="alta" name="clase" />
+                            <label for="media">Media</label>
+                            <input type="radio" id="media" name="clase" />
+                            <label for="baja">Baja</label>
+                            <input type="radio" id="baja" name="clase" checked="checked"/>
+                        </div>
+                        <div>
+                            <label for="detalles">Detalles</label>
+                            <textarea name="detalles" id="detalles">
+                            </textarea>
+                        </div>
+                        <div>
+                            <label for="selector">Selector de cosas</label>
+                            <select name="selector" id="selector" multiple="multiple">
+                                <optgroup label="Ciencia Ficción">
+                                    <option id="novela_ccff" value="novela_CCFF" selected="selected">Novela</option>
+                                    <option id="distopia_ccff" value="distopia">Distopía</option>
+                                </optgroup>
+                                <optgroup label="Negra">
+                                    <option id="novela_negra" value="novela_negra">Novela</option>
+                                </optgroup>
+                            </select>
+                        </div>
                     <input type="submit" name="submit" value="Enviar" id="submit"/>
+                        <input type="reset" name="reset" value="Reset" id="reset"/>
+                    </fieldset>
                 </form>
             </div>
             <div>
@@ -169,7 +208,7 @@
                     </div>
                     <div>
                         <label for="numero">Número de coches:</label>
-                        <input type="number" name="numero" id="numero" value="5.0" required
+                        <input type="number" name="numero" id="numero" value="5.0"  step="0.5" required
                         min=0 max=50
                         
                         />
@@ -194,7 +233,8 @@
                            <option value="info@cursosdedesarollo.com" label="Admin"></option>
                        </datalist>
                         <label for="contacto">Contacto:</label>
-                        <input type="email" name="contacto" id="contacto" value="pepesan@gmail.com" required list="listado"
+                        <input type="email" name="contacto" id="contacto" value="pepesan@gmail.com" required
+                               list="listado"
                         />
                     </div>
                     <input type="submit" name="submit" value="Enviar" id="submit3"/>
